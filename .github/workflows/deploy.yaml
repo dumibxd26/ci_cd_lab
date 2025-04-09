@@ -8,6 +8,7 @@ on:
 jobs:
   compile:
     runs-on: ubuntu-latest
+    needs: test
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -40,5 +41,4 @@ jobs:
       - name: Test gen
 	run: go test ./...
     # TODO 02 - Make sure that this job is run before `compile
-      - name: Run before
-	run: go build -o app
+      
